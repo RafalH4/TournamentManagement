@@ -20,7 +20,8 @@ namespace TournamentManagement.Services.Implementations
 
         public async Task<List<Tournament>> GetAllTournaments()
         {
-            return await _tournamentRepository.GetAll();
+            //return await _tournamentRepository.GetAll();
+            return null;
         }
 
         public async Task CreateTournament(Tournament tournament)
