@@ -7,6 +7,7 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllersWithViews();
 StartupExtensionsMethods.AddApplicationDbContext(builder);
 StartupExtensionsMethods.AddRepositories(builder.Services);
+StartupExtensionsMethods.AddServices(builder.Services);
 
 var app = builder.Build();
 

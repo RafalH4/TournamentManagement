@@ -1,6 +1,8 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using TournamentManagement.Repository.Implementations;
 using TournamentManagement.Repository.Interfaces;
+using TournamentManagement.Services.Implementations;
+using TournamentManagement.Services.Interfaces;
 
 namespace TournamentManagement.ExtensionsMethods
 {
@@ -19,6 +21,13 @@ namespace TournamentManagement.ExtensionsMethods
             services.AddScoped<IParticipantRepository, ParticipantRepository>();
             services.AddScoped<ITeamRepository, TeamRepository>();
             services.AddScoped<IMatchRepository, MatchRepository>();
+        }
+        public static void AddServices(this IServiceCollection services)
+        {
+            services.AddScoped<ITournamentService, TournamentService>();
+            services.AddScoped<IParticipantService, ParticipantService>();
+            services.AddScoped<ITeamService, TeamService>();
+            services.AddScoped<IMatchService, MatchService>();
         }
     }
 }
