@@ -1,4 +1,5 @@
-﻿using TournamentManagement.Models.Domains;
+﻿using Microsoft.EntityFrameworkCore;
+using TournamentManagement.Models.Domains;
 using TournamentManagement.Repository.Interfaces;
 
 namespace TournamentManagement.Repository.Implementations
@@ -11,9 +12,9 @@ namespace TournamentManagement.Repository.Implementations
             _context = context;
         }
 
-        public Task Add(Tournament tournament)
+        public async Task Add(Tournament tournament)
         {
-            throw new NotImplementedException();
+            await _context.AddAsync(tournament);
         }
 
         public Task Delete(Tournament tournament)
@@ -24,6 +25,10 @@ namespace TournamentManagement.Repository.Implementations
         public Task<Tournament> GetById(int id)
         {
             throw new NotImplementedException();
+        }
+        public async Task<List<Tournament>> GetAll()
+        {
+            return await _context.Tournaments.ToListAsync();
         }
 
         public Task Update(Tournament tournament)
