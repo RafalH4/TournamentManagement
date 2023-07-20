@@ -1,9 +1,8 @@
 ﻿
 namespace TournamentManagement.Models.Domains
 {
-    public class Tournament
+    public class Tournament : Entity
     {
-        public int Id { get; set; }
         public string Name { get; set; }
         public DateTime StartDate { get; set; }
         public DateTime EndDate { get; set; }

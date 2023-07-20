@@ -1,8 +1,7 @@
 ﻿namespace TournamentManagement.Models.Domains
 {
-    public class Participant
+    public class Participant : Entity
     {
-        public int Id { get; set; }
         public int TeamId { get; set; }
         public Team Team { get; set; }
         public int TournamentId { get; set; }

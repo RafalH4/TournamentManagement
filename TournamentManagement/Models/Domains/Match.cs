@@ -1,8 +1,7 @@
 ﻿namespace TournamentManagement.Models.Domains
 {
-    public class Match
+    public class Match : Entity
     {
-        public int Id { get; set; }
         public Participant HomeParticipant { get; set; }
         public int HomeParticipantId { get; set; }
         public Participant AwayParticipant { get; set; }
