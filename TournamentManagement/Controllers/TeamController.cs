@@ -1,5 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using TournamentManagement.Models.Domains;
+using TournamentManagement.Models.DTO;
+using TournamentManagement.Models.DTO.Team;
 using TournamentManagement.Services.Interfaces;
 
 namespace TournamentManagement.Controllers
@@ -36,7 +38,7 @@ namespace TournamentManagement.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create(Team team)
+        public async Task<IActionResult> Create(CreateTeamDto team)
         {
             if (ModelState.IsValid)
             {

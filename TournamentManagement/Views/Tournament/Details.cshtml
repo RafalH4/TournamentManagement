@@ -1,0 +1,17 @@
+﻿@model TournamentManagement.Models.DTO.Tournament.TournamentDto
+
+
+<h1>Tournament Details</h1>
+
+<div>
+    <h4>Id: @Model.Id</h4>
+    <h4>Name: @Model.Name</h4>
+    <h4>Start Date: @Model.StartDate</h4>
+    <h4>End Time: @Model.EndTime</h4>
+    <h4>Added Time: @Model.AddedTime</h4>
+</div>
+
+<p>
+    <a asp-action="Edit" asp-route-id="@Model.Id">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</p>

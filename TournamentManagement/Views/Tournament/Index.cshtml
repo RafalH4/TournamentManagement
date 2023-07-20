@@ -1,0 +1,39 @@
+﻿@model List<TournamentManagement.Models.DTO.Tournament.TournamentDto>
+
+
+<h1>Turnieje</h1>
+
+<p>
+    <a asp-action="Create">Dodaj</a>
+</p>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Nazwa</th>
+            <th>Czas rozpoczęcia</th>
+            <th>Czas zakończenia</th>
+            <th>Data utworzenia</th>
+            <th>Akcje</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var tournament in Model)
+        {
+            <tr>
+                <td>@tournament.Id</td>
+                <td>@tournament.Name</td>
+                <td>@tournament.StartDate</td>
+                <td>@tournament.EndTime</td>
+                <td>@tournament.AddedTime</td>
+                <td>
+                    <a asp-action="Details" asp-route-id="@tournament.Id">Szczegóły</a> |
+                    <a asp-action="Edit" asp-route-id="@tournament.Id">Edycja</a> |
+                    <a asp-action="Delete" asp-route-id="@tournament.Id">Usuń</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

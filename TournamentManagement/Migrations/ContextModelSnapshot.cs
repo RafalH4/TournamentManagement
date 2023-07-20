@@ -30,11 +30,17 @@ namespace TournamentManagement.Migrations
                     b.Property<int>("HomeParticipantId")
                         .HasColumnType("int");
 
+                    b.Property<DateTime>("AddedTime")
+                        .HasColumnType("datetime2");
+
                     b.Property<DateTime>("Date")
                         .HasColumnType("datetime2");
 
                     b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
                         .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
                     b.Property<int>("ScoreAway")
                         .HasColumnType("int");
@@ -62,6 +68,9 @@ namespace TournamentManagement.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
+                    b.Property<DateTime>("AddedTime")
+                        .HasColumnType("datetime2");
+
                     b.Property<int>("TeamId")
                         .HasColumnType("int");
 
@@ -85,6 +94,9 @@ namespace TournamentManagement.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
+                    b.Property<DateTime>("AddedTime")
+                        .HasColumnType("datetime2");
+
                     b.Property<string>("Description")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
@@ -105,6 +117,9 @@ namespace TournamentManagement.Migrations
                         .HasColumnType("int");
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<DateTime>("AddedTime")
+                        .HasColumnType("datetime2");
 
                     b.Property<DateTime>("EndDate")
                         .HasColumnType("datetime2");

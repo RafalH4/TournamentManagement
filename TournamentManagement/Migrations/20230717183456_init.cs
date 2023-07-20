@@ -18,7 +18,8 @@ namespace TournamentManagement.Migrations
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     Name = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    Description = table.Column<string>(type: "nvarchar(max)", nullable: false)
+                    Description = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    AddedTime = table.Column<DateTime>(type: "datetime2", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -33,7 +34,8 @@ namespace TournamentManagement.Migrations
                         .Annotation("SqlServer:Identity", "1, 1"),
                     Name = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     StartDate = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    EndDate = table.Column<DateTime>(type: "datetime2", nullable: false)
+                    EndDate = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    AddedTime = table.Column<DateTime>(type: "datetime2", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -47,7 +49,8 @@ namespace TournamentManagement.Migrations
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     TeamId = table.Column<int>(type: "int", nullable: false),
-                    TournamentId = table.Column<int>(type: "int", nullable: false)
+                    TournamentId = table.Column<int>(type: "int", nullable: false),
+                    AddedTime = table.Column<DateTime>(type: "datetime2", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -72,11 +75,13 @@ namespace TournamentManagement.Migrations
                 {
                     HomeParticipantId = table.Column<int>(type: "int", nullable: false),
                     AwayParticipantId = table.Column<int>(type: "int", nullable: false),
-                    Id = table.Column<int>(type: "int", nullable: false),
                     Date = table.Column<DateTime>(type: "datetime2", nullable: false),
                     ScoreHome = table.Column<int>(type: "int", nullable: false),
                     ScoreAway = table.Column<int>(type: "int", nullable: false),
-                    TournamentId = table.Column<int>(type: "int", nullable: true)
+                    TournamentId = table.Column<int>(type: "int", nullable: true),
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    AddedTime = table.Column<DateTime>(type: "datetime2", nullable: false)
                 },
                 constraints: table =>
                 {

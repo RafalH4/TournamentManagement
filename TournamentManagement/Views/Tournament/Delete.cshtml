@@ -1,0 +1,18 @@
+﻿@model TournamentManagement.Models.DTO.Tournament.TournamentDto
+
+
+<h1>Delete Tournament</h1>
+
+<div>
+    <h4>Id: @Model.Id</h4>
+    <h4>Name: @Model.Name</h4>
+    <h4>Start Date: @Model.StartDate</h4>
+    <h4>End Time: @Model.EndTime</h4>
+    <h4>Added Time: @Model.AddedTime</h4>
+</div>
+
+<form asp-action="Delete">
+    <input type="hidden" asp-for="Id" />
+    <button type="submit" class="btn btn-danger">Delete</button>
+    <a asp-action="Index" class="btn btn-secondary">Back to List</a>
+</form>

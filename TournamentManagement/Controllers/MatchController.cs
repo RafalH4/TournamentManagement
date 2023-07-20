@@ -1,89 +1,94 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using TournamentManagement.Models.Domains;
-using TournamentManagement.Models.DTO.Tournament;
 using TournamentManagement.Services.Interfaces;
 
 namespace TournamentManagement.Controllers
 {
-    public class TournamentController : Controller
+    public class MatchController : Controller
     {
-        private readonly ITournamentService _tournamentService;
+        private readonly IMatchService _matchService;
 
-        public TournamentController(ITournamentService tournamentService)
+        public MatchController(IMatchService matchService)
         {
-            _tournamentService = tournamentService;
+            _matchService = matchService;
         }
 
         public async Task<IActionResult> Index()
         {
-            var tournaments = await _tournamentService.GetAllTournaments();
-            return View(tournaments);
+            var matches = await _matchService.GetAllMatches();
+            return View(matches);
         }
 
         public async Task<IActionResult> Details(int id)
         {
-            var tournament = await _tournamentService.GetTournamentById(id);
-            if (tournament == null)
+            var match = await _matchService.GetMatchById(id);
+            if (match == null)
             {
                 return NotFound();
             }
-            return View(tournament);
+            return View(match);
         }
 
         public IActionResult Create()
         {
+            //ViewBag.ParticipantList = await _matchService.GetParticipantList();
             return View();
         }
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create(CreateTournamentDto tournament)
+        public async Task<IActionResult> Create(Match match)
         {
             if (ModelState.IsValid)
             {
-                await _tournamentService.CreateTournament(tournament);
+                await _matchService.CreateMatch(match);
                 return RedirectToAction(nameof(Index));
             }
-            return View(tournament);
+
+            //ViewBag.ParticipantList = await _matchService.GetParticipantList();
+            return View(match);
         }
 
         public async Task<IActionResult> Edit(int id)
         {
-            var tournament = await _tournamentService.GetTournamentById(id);
-            if (tournament == null)
+            var match = await _matchService.GetMatchById(id);
+            if (match == null)
             {
                 return NotFound();
             }
-            return View(tournament);
+
+            //ViewBag.ParticipantList = await _matchService.GetParticipantList();
+            return View(match);
         }
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, Tournament tournament)
+        public async Task<IActionResult> Edit(int id, Match match)
         {
-            if (id != tournament.Id)
+            if (id != match.Id)
             {
                 return NotFound();
             }
 
             if (ModelState.IsValid)
             {
-                await _tournamentService.UpdateTournament(tournament);
+                await _matchService.UpdateMatch(match);
                 return RedirectToAction(nameof(Index));
             }
 
-            return View(tournament);
+            //ViewBag.ParticipantList = await _matchService.GetParticipantList();
+            return View(match);
         }
 
         public async Task<IActionResult> Delete(int id)
         {
-            var tournament = await _tournamentService.GetTournamentById(id);
-            if (tournament == null)
+            var match = await _matchService.GetMatchById(id);
+            if (match == null)
             {
                 return NotFound();
             }
 
-            return View(tournament);
+            return View(match);
         }
 
         [HttpPost]
@@ -91,7 +96,7 @@ namespace TournamentManagement.Controllers
         [ActionName("Delete")]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            await _tournamentService.DeleteTournament(id);
+            await _matchService.DeleteMatch(id);
             return RedirectToAction(nameof(Index));
         }
     }
