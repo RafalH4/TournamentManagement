@@ -22,7 +22,7 @@ namespace TournamentManagement.Controllers
 
         public async Task<IActionResult> Details(int id)
         {
-            var tournament = await _tournamentService.GetTournamentById(id);
+            var tournament = await _tournamentService.GetTournamentDetails(id);
             if (tournament == null)
             {
                 return NotFound();

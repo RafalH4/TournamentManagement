@@ -1,4 +1,6 @@
-﻿namespace TournamentManagement.Models.DTO.Tournament
+﻿using TournamentManagement.Models.DTO.Team;
+
+namespace TournamentManagement.Models.DTO.Tournament
 {
     public class CreateTournamentDto
     {

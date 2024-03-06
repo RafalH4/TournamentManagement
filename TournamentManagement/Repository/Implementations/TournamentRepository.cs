@@ -22,9 +22,9 @@ namespace TournamentManagement.Repository.Implementations
             throw new NotImplementedException();
         }
 
-        public Task<Tournament> GetById(int id)
+        public async Task<Tournament> GetById(int id)
         {
-            throw new NotImplementedException();
+            return _context.Tournaments.SingleOrDefault(x => x.Id == id);
         }
         public async Task<List<Tournament>> GetAll()
         {

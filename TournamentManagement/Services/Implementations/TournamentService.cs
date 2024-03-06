@@ -18,7 +18,18 @@ namespace TournamentManagement.Services.Implementations
         {
             return await _repository.TournamentRepository.GetById(id);
         }
-
+        public async Task<TournamentDto> GetTournamentDetails(int id)
+        {
+            var tournament = await _repository.TournamentRepository.GetById(id);
+            var tournamentDto = new TournamentDto()
+            {
+                Id = tournament.Id,
+                Name = tournament.Name,
+                StartDate = tournament.StartDate,
+                EndTime = tournament.EndDate
+            };
+            return tournamentDto;
+        }
         public async Task<List<TournamentDto>> GetAllTournaments()
         {
             var tournaments = await _repository.TournamentRepository.GetAll();

@@ -29,6 +29,7 @@
                 <td>@tournament.EndTime</td>
                 <td>@tournament.AddedTime</td>
                 <td>
+                    <a asp-action="AddParticipants" asp-route-id="@tournament.Id">Dodaj uczestnikow</a> |
                     <a asp-action="Details" asp-route-id="@tournament.Id">Szczegóły</a> |
                     <a asp-action="Edit" asp-route-id="@tournament.Id">Edycja</a> |
                     <a asp-action="Delete" asp-route-id="@tournament.Id">Usuń</a>
